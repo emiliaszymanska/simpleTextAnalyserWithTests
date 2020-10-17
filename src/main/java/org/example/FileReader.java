@@ -14,8 +14,8 @@ public class FileReader {
     private int toLine;
 
     public FileReader() {
-        this.filePath = "src/main/resources/test.txt";
-        this.fromLine = 0;
+        this.filePath = "src/main/resources/test2.txt";
+        this.fromLine = 1;
         this.toLine = 3;
     }
 
@@ -35,7 +35,7 @@ public class FileReader {
     public String readLines() throws IOException {
         String content = read();
         String[] lines = content.split("\n");
-        List<String> selectedLines = Arrays.asList(lines).subList(this.fromLine, this.toLine);
+        List<String> selectedLines = Arrays.asList(lines).subList(this.fromLine - 1, this.toLine);
 
         return String.join("\n", selectedLines).replaceAll("[\\p{Punct}]", "").toLowerCase();
     }
